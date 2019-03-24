@@ -11,20 +11,7 @@ $data=[
     'email'=>$_POST['email'],
     'password'=>md5($_POST['password'])
 ];
+require_once ('database/db.php');
 
-$pdo=new PDO('mysql:host=localhost;dbname=task-manager', 'root', '');
-$sql = "SELECT * FROM users WHERE email=:email AND password=:password";
-$statement=$pdo->prepare($sql);
-$statement->execute($data);
-$user=$statement->fetch();
-if($user){
-    $_SESSION['user']=$user;
-    header('Location:list.php');
-    exit();
-}
-else {
-    $errorMassage = "Ошибка! Неверно логин или пароль";
-    require "login-form.php";
-    exit();
-}
+login($data, $pdo);
 header('Location:login-form.php');
