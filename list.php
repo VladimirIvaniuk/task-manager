@@ -3,7 +3,7 @@
 <?php if($_SESSION['user']):?>
 <?php require_once('db/db.php');
 $tasks=allTasks($pdo);
-//var_dump($tasks);
+
 ?>
     <!doctype html>
     <html lang="en">
@@ -28,7 +28,8 @@ $tasks=allTasks($pdo);
                         <p class="text-muted">Add some information about the album below, the author, or any other background context. Make it a few sentences long so folks can pick up some informative tidbits. Then, link them off to some social networking sites or contact information.</p>
                     </div>
                     <div class="col-sm-4 offset-md-1 py-4">
-                        <h4 class="text-white">john@example.com</h4>
+                        <h4 class="text-white"><?=$_SESSION['user']['name']?></h4>
+                        <h4 class="text-white"><?=$_SESSION['user']['email']?></h4>
                         <ul class="list-unstyled">
                             <li><a href="logout.php" class="text-white">Выйти</a></li>
                         </ul>
@@ -75,7 +76,7 @@ $tasks=allTasks($pdo);
                                     <div class="btn-group">
                                         <a href="<?= 'show.php?id='.$task['id']?>" class="btn btn-sm btn-outline-secondary">Подробнее</a>
                                         <a href="<?= 'edit-form.php?id='.$task['id']?>" class="btn btn-sm btn-outline-secondary">Изменить</a>
-                                        <a href="#" class="btn btn-sm btn-outline-secondary" onclick="confirm('are you sure?')">Удалить</a>
+                                        <a href="<?= 'delete.php?id='.$task['id']?>" class="btn btn-sm btn-outline-secondary" onclick="confirm('are you sure?')">Удалить</a>
                                     </div>
                                 </div>
                             </div>

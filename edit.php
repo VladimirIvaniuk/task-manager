@@ -7,6 +7,6 @@ $data=[
     'title'=>$_POST['title'],
     'description'=>$_POST['description'],
     'image'=>$imageName,
-    'user_id'=>6
+    'user_id'=>$_POST['user_id']
 ];
 update($pdo, $data);

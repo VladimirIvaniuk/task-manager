@@ -81,3 +81,9 @@ function update($pdo, $data)
     $statement->execute($data);
 
 }
+function deleteTask($pdo, $data){
+    $sql="DELETE FROM tasks WHERE id=:id";
+    $statement = $pdo->prepare($sql);
+    $statement->bindParam('id', $data);
+    $statement->execute();
+}
