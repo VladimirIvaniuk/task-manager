@@ -18,7 +18,7 @@
   <body>
 
     <div class="form-wrapper text-center">
-      <form class="form-signin" action="login.php" method="post">
+      <form class="form-signin" action="login.php" method="post" >
         <img class="mb-4" src="assets/img/bootstrap-solid.svg" alt="" width="72" height="72">
         <h1 class="h3 mb-3 font-weight-normal">Авторизация</h1>
         <label for="inputEmail" class="sr-only">Email</label>
@@ -29,7 +29,7 @@
           <br>
         <div class="checkbox mb-3">
           <label>
-            <input type="checkbox" value="remember-me"> Запомнить меня
+            <input type="checkbox" name="remember"> Запомнить меня
           </label>
         </div>
         <button class="btn btn-lg btn-primary btn-block" type="submit">Войти</button>

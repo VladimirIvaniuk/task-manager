@@ -1,5 +1,6 @@
 <?php
 session_start();
+
 foreach ($_POST as $value){
     if(empty($value)){
         require 'errors.php';
