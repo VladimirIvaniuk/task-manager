@@ -5,7 +5,7 @@ function login($data, $pdo){
     $sql = "SELECT * FROM users WHERE email=:email AND password=:password";
     $statement=$pdo->prepare($sql);
     $statement->execute($data);
-    $user=$statement->fetch();
+    $user=$statement->fetch(PDO::FETCH_ASSOC);
     if($user){
         $_SESSION['user']=$user;
         header('Location:list.php');
@@ -63,7 +63,7 @@ function allTasks($pdo){
     $sql="SELECT * FROM tasks";
     $statement=$pdo->prepare($sql);
     $statement->execute();
-    $tasks=$statement->fetchAll();
+    $tasks=$statement->fetchAll(PDO::FETCH_ASSOC);
     return $tasks;
 }
 function oneTask($pdo, $data){

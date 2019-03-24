@@ -1,7 +1,6 @@
-
 <?php
 session_start();
-
+require_once('db/db.php');
 foreach ($_POST as $value){
     if(empty($value)){
         require 'errors.php';
@@ -12,7 +11,7 @@ $data=[
     'email'=>$_POST['email'],
     'password'=>md5($_POST['password'])
 ];
-require_once('db/db.php');
+
 
 login($data, $pdo);
 header('Location:login-form.php');
