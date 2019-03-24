@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-require_once ('database/db.php');
+require_once('db/db.php');
 $imageName=uploadImage($_FILES['image']);
 
 $data=[

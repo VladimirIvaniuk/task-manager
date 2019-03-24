@@ -1,7 +1,7 @@
 <?php session_start();?>
 <?php if(!$_SESSION['user']){header('Location:login-form.php');exit();}?>
 <?php if($_SESSION['user']):?>
-<?php require_once ('database/db.php');
+<?php require_once('db/db.php');
 $tasks=allTasks($pdo);
 //var_dump($tasks);
 ?>

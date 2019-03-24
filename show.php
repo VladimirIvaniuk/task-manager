@@ -1,5 +1,5 @@
 <?php
-require_once ('database/db.php');
+require_once('db/db.php');
 $data=$_GET['id'];
 $task=oneTask($pdo, $data);
 

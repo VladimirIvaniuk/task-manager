@@ -11,7 +11,7 @@ foreach ($_POST as $item) {
         exit();
     }
 }
-require_once ('database/db.php');
+require_once('db/db.php');
 //проверка email
 register($data, $pdo);
 
