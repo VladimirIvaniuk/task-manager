@@ -49,13 +49,8 @@ function uploadImage($image){
     return $imageName;
 }
 function addTask($data, $pdo){
-//    $pdo=new PDO('mysql:host=localhost;dbname=task-manager', 'root', '');
     $sql='INSERT INTO tasks(title, description, image, user_id)VALUES (:title, :description, :image, :user_id)';
     $statement=$pdo->prepare($sql);
-//    $statement->bindParam(':title',$_POST['title']);
-//    $statement->bindParam(':description',$_POST['description']);
-//    $statement->bindParam(':image',$imageName);
-//    $statement->bindParam(':user_id',$_SESSION['user']['id']);
     $statement->execute($data);
 }
 function allTasks($pdo){
@@ -73,4 +68,16 @@ function oneTask($pdo, $data){
     $statement->execute();
     $task=$statement->fetch(PDO::FETCH_ASSOC);
     return $task;
+}
+function update($pdo, $data)
+{
+    $str_data = '';
+    foreach ($data as $key => $value) {
+        $str_data .= $key . "=:$key, ";
+    }
+    $str_data = rtrim($str_data, ", ");
+    $sql = "UPDATE tasks SET $str_data WHERE id = :id";
+    $statement = $pdo->prepare($sql);
+    $statement->execute($data);
+
 }
