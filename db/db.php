@@ -1,6 +1,7 @@
 <?php
 $dsdg=4;
 
+
 $pdo=new PDO('mysql:host=localhost;dbname=task-manager', 'root', '');
 function login($data, $pdo){
     $sql = "SELECT * FROM users WHERE email=:email AND password=:password";
